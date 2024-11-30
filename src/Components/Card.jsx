@@ -1,24 +1,39 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { ContextGlobal } from "./utils/global.context";
 import PropTypes from 'prop-types';
 
 const Card = ({ name, username, id }) => {
+  const { state } = useContext(ContextGlobal);
+
   const addFav = () => {
     const favs = JSON.parse(localStorage.getItem("favs")) || [];
+    const isDuplicate = favs.some(fav => fav.id === id);
     
-    if (!favs.some(fav => fav.id === id)) {
-      const updatedFavs = [...favs, { name, username, id }];
-      localStorage.setItem("favs", JSON.stringify(updatedFavs));
+    if (!isDuplicate) {
+      const newFavs = [...favs, { name, username, id }];
+      localStorage.setItem("favs", JSON.stringify(newFavs));
       alert("Added to favorites");
     }
   };
 
   return (
-    <div className="card">
+    <div className={`card ${state.theme}`}>
+      <img 
+        src="/doctor.jpg" 
+        alt="doctor" 
+        style={{ 
+          width: '100%', 
+          height: '200px', 
+          objectFit: 'cover',
+          borderRadius: '4px'
+        }}
+      />
       <Link to={`/dentist/${id}`}>
         <h3>{name}</h3>
-        <p>{username}</p>
+        <p>@{username}</p>
       </Link>
-      <button onClick={addFav} className="favButton">Add fav</button>
+      <button onClick={addFav} className="favButton">⭐ Add fav</button>
     </div>
   );
 };

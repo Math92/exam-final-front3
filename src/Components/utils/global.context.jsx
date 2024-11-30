@@ -15,9 +15,9 @@ const reducer = (state, action) => {
     default:
       return state;
   }
-}
+};
 
-export const ContextGlobal = createContext(undefined);
+export const ContextGlobal = createContext();
 
 export const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -25,8 +25,7 @@ export const ContextProvider = ({ children }) => {
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then(res => res.json())
-      .then(data => dispatch({ type: 'GET_DENTISTS', payload: data }))
-      .catch(err => console.error("Error fetching dentists:", err));
+      .then(data => dispatch({ type: 'GET_DENTISTS', payload: data }));
   }, []);
 
   return (
