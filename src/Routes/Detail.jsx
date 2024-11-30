@@ -18,26 +18,44 @@ const Detail = () => {
     <div className={state.theme}>
       <h1>Detail Dentist {id}</h1>
       {dentist && (
-        <table>
-          <tbody>
-            <tr>
-              <th>Name</th>
-              <td>{dentist.name}</td>
-            </tr>
-            <tr>
-              <th>Email</th>
-              <td>{dentist.email}</td>
-            </tr>
-            <tr>
-              <th>Phone</th>
-              <td>{dentist.phone}</td>
-            </tr>
-            <tr>
-              <th>Website</th>
-              <td>{dentist.website}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'flex-start',
+          gap: '2rem',
+          padding: '2rem'
+        }}>
+          <img 
+            src="/doctor.jpg"
+            alt="Doctor profile"
+            style={{
+              width: '200px',
+              height: '200px',
+              objectFit: 'cover',
+              borderRadius: '4px'
+            }}
+          />
+          <table>
+            <tbody>
+              <tr>
+                <th>Name</th>
+                <td>{dentist.name}</td>
+              </tr>
+              <tr>
+                <th>Email</th>
+                <td>{dentist.email}</td>
+              </tr>
+              <tr>
+                <th>Phone</th>
+                <td>{dentist.phone}</td>
+              </tr>
+              <tr>
+                <th>Website</th>
+                <td>{dentist.website}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       )}
     </div>
   );
