@@ -13,7 +13,7 @@ const Card = ({ name, username, id }) => {
     if (!isDuplicate) {
       const newFavs = [...favs, { name, username, id }];
       localStorage.setItem("favs", JSON.stringify(newFavs));
-      alert("Added to favorites");
+      alert("Agregado a Favoritos");
     }
   };
 

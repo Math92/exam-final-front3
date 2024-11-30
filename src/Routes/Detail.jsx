@@ -16,7 +16,7 @@ const Detail = () => {
 
   return (
     <div className={state.theme}>
-      <h1>Detail Dentist {id}</h1>
+      <h1>Datos Dentista {id}</h1>
       {dentist && (
         <div style={{ 
           display: 'flex', 
@@ -38,7 +38,7 @@ const Detail = () => {
           <table>
             <tbody>
               <tr>
-                <th>Name</th>
+                <th>Nombre</th>
                 <td>{dentist.name}</td>
               </tr>
               <tr>
@@ -46,11 +46,11 @@ const Detail = () => {
                 <td>{dentist.email}</td>
               </tr>
               <tr>
-                <th>Phone</th>
+                <th>Telefono</th>
                 <td>{dentist.phone}</td>
               </tr>
               <tr>
-                <th>Website</th>
+                <th>Stio Web</th>
                 <td>{dentist.website}</td>
               </tr>
             </tbody>

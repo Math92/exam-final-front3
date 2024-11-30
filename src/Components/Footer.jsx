@@ -1,29 +1,49 @@
 import { useContext } from 'react';
 import { ContextGlobal } from './utils/global.context';
+import styles from './Footer.module.css';
 
 const Footer = () => {
   const { state } = useContext(ContextGlobal);
 
   return (
-    <footer className={state.theme}>
-      <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem'}}>
-        <p>Powered by</p>
+    <footer className={`${styles.footer} ${state.theme}`}>
+      <div className={styles.brandContainer}>
+        <p className={styles.brandText}>Powered by</p>
         <img 
           src="/DH.png" 
           alt='DH-logo'
-          style={{ height: '40px', width: 'auto' }}
+          className={styles.brandLogo}
         />
       </div>
-      <div className="social-icons" style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        gap: '1rem',
-        marginTop: '1rem'
-      }}>
-        <a href="#"><img src="/ico-facebook.png" alt="facebook" style={{ height: '24px' }}/></a>
-        <a href="#"><img src="/ico-instagram.png" alt="instagram" style={{ height: '24px' }}/></a>
-        <a href="#"><img src="/ico-whatsapp.png" alt="whatsapp" style={{ height: '24px' }}/></a>
-        <a href="#"><img src="/ico-tiktok.png" alt="tiktok" style={{ height: '24px' }}/></a>
+      <div className={styles.socialContainer}>
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <img 
+            src="/ico-facebook.png" 
+            alt="facebook" 
+            className={styles.socialIcon}
+          />
+        </a>
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <img 
+            src="/ico-instagram.png" 
+            alt="instagram" 
+            className={styles.socialIcon}
+          />
+        </a>
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <img 
+            src="/ico-whatsapp.png" 
+            alt="whatsapp" 
+            className={styles.socialIcon}
+          />
+        </a>
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <img 
+            src="/ico-tiktok.png" 
+            alt="tiktok" 
+            className={styles.socialIcon}
+          />
+        </a>
       </div>
     </footer>
   );
