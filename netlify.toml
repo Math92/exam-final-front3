@@ -1,4 +1,28 @@
-[[headers]]
-  for = "/*"
-    [headers.values]
-    Access-Control-Allow-Origin = "*"
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/home"
+  to = "/"
+  status = 200
+
+[[redirects]]
+  from = "/dentist/*"
+  to = "/"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/"
+  status = 200
+
+[[redirects]]
+  from = "/favs"
+  to = "/"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
